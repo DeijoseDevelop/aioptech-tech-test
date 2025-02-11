@@ -1,7 +1,7 @@
 import { Component, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MarkdownModule } from 'ngx-markdown'; // Importa MarkdownModule
+import { MarkdownModule } from 'ngx-markdown';
 import { ChatService } from '../../services/chat.service';
 import { ChatMessage } from '../../models/chat-message';
 import { parseChatResponse } from '../../../utils/parseChatResponse';
