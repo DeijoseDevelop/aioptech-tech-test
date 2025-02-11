@@ -1,0 +1,35 @@
+<div class="chat-card">
+  <div class="chat-header">
+    <h2>Asistente Virtual</h2>
+  </div>
+  <div class="chat-messages" #scrollContainer>
+    <div *ngFor="let message of messages" 
+         [class.user-message]="message.isUser"
+         [class.bot-message]="!message.isUser"
+         class="message">
+      <div class="message-content">
+        <div class="message-icon">
+          <i [class]="message.isUser ? 'fas fa-user' : 'fas fa-robot'"></i>
+        </div>
+        <div class="message-text">
+          <ng-container *ngIf="message.isUser; else markdownTemplate">
+            {{ message.text }}
+          </ng-container>
+          <ng-template #markdownTemplate>
+            <markdown [data]="message.text"></markdown>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="chat-input-container">
+    <input type="text" 
+           [(ngModel)]="currentMessage" 
+           (keyup.enter)="sendMessage()"
+           placeholder="Pregunta sobre un vehículo..."
+           class="chat-input">
+    <button (click)="sendMessage()" class="send-button">
+      <i class="fas fa-paper-plane"></i>
+    </button>
+  </div>
+</div>

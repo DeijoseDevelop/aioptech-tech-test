@@ -1,0 +1,27 @@
+<div class="vehicle-list-card">
+  <div class="list-header">
+    <h2>Vehículos Registrados</h2>
+  </div>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Placa</th>
+          <th>Marca</th>
+          <th>Modelo</th>
+          <th>Serie</th>
+          <th>Color</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vehicle of vehicles$ | async">
+          <td>{{ vehicle.placa }}</td>
+          <td>{{ vehicle.marca }}</td>
+          <td>{{ vehicle.modelo }}</td>
+          <td>{{ vehicle.serie }}</td>
+          <td>{{ vehicle.color }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
